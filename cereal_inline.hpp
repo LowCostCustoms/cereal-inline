@@ -55,7 +55,7 @@ void CEREAL_SAVE_INLINE_FUNCTION_NAME(ArchiveType &archive, const T &value) {
 
 template<class ArchiveType, class T, PROCESS_IF(non_member_serialize)>
 void CEREAL_SAVE_INLINE_FUNCTION_NAME(ArchiveType &archive, const T &value) {
-  CEREAL_SERIALIZE_FUNCTION_NAME(archive, value);
+  CEREAL_SERIALIZE_FUNCTION_NAME(archive, const_cast<T&>(value));
 };
 
 template<class ArchiveType, class T, PROCESS_IF(member_save)>
